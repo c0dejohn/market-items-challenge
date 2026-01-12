@@ -164,13 +164,15 @@ This project uses an automated pipeline to ensure every delivery meets productio
 
 ## 🤖 AI Collaboration
 
-This project was built using an **Agentic Workflow** assisting the developer.
+This project was built using an **Agentic Workflow** assisting the developer, following a **Spec-Driven Development** approach.
+
+*   **Methodology**: The developer explicitly defined the Architectural Style (Hexagonal), Quality Standards, Features, and Documentation requirements upfront. The AI acted as an accelerator to implement these precise specifications, ensuring human-led design with machine-assisted execution.
 *   **AI Assistants Used**: Google Gemini (via Antigravity).
 *   **Role**:
-    *   **Code Generation**: Scaffolding NestJS modules and Tests.
-    *   **Refactoring**: Migrating from JSON to SQLite and implementing Hexagonal Architecture.
-    *   **Documentation**: Generating Diagrams (Mermaid), README sections, and ADRs.
-    *   **Debugging**: Analyzing CI logs and resolving Docker issues.
+    *   **Code Generation**: Scaffolding NestJS framework based on Hexagonal Specs.
+    *   **Refactoring**: Migrating persistence layers while respecting Domain boundaries.
+    *   **Documentation**: Translating architectural concepts into Mermaid Diagrams and ADRs.
+    *   **Debugging**: Log analysis for CI/CD pipelines.
 
 ## 🏗️ Architecture Decisions (ADR)
 

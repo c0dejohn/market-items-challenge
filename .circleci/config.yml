@@ -19,8 +19,8 @@ jobs:
           name: Deploy to HackerRank
           command: |
             # Configuramos git para el push
-            git config --global user.email "jmanyoma@fgs.co"
-            git config --global user.name "Edwin Manyoma"
+             git config --global user.email "ci-bot@circleci.com"
+             git config --global user.name "CircleCI Bot"
             # HACKERRANK_REPO_URL debe estar en los Project Settings de CircleCI
             git remote add hackerrank $HACKERRANK_REPO_URL
             git push hackerrank HEAD:master --force

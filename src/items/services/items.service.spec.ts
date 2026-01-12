@@ -8,11 +8,14 @@ const mockItem = new Item(
     '123',
     'Title',
     new Price('ARS', 100, 0),
-    'pic',
+    ['http://picture.url'],
     'new',
     true,
     1,
     'desc',
+    'http://permalink.url',
+    [],
+    'BsAs',
 );
 
 const mockRepository = {

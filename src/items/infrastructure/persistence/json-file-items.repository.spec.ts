@@ -13,11 +13,14 @@ describe('JsonFileItemsRepository', () => {
             id: 'MLA1',
             title: 'Test Item',
             price: { currency: 'ARS', amount: 100, decimals: 0 },
-            picture: 'url',
+            pictures: ['url'],
             condition: 'new',
             free_shipping: true,
             sold_quantity: 1,
             description: 'desc',
+            permalink: 'http://permalink.url',
+            attributes: [],
+            city: 'BsAs',
         },
     ];
 

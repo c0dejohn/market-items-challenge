@@ -1,16 +1,39 @@
 [
     {
         "id": "MLA123",
-        "title": "Test Item",
+        "title": "Audífono Recargable Digital Sin Bluetooth Sordos Sordera Par",
         "price": {
-            "currency": "ARS",
-            "amount": 1000,
+            "currency": "COP",
+            "amount": 227900,
             "decimals": 0
         },
-        "picture": "http://http2.mlstatic.com/D_878345-MLA456_012024-O.jpg",
+        "pictures": [
+            "https://http2.mlstatic.com/D_NQ_NP_918580-MCO73562479590_122023-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_660233-MCO73562479592_122023-O.webp",
+            "https://http2.mlstatic.com/D_NQ_NP_900388-MCO73562479594_122023-O.webp"
+        ],
         "condition": "new",
         "free_shipping": true,
-        "sold_quantity": 10,
-        "description": "Description"
+        "sold_quantity": 569,
+        "description": "AUDIFONO RECARGABLE K-80 \n\nDiseño pequeño y discreto: diseño ligero y pequeño, lo que lo hace invisible y fácil de llevar para diversas ocasiones.\n\nContenido de la Caja:\n2 Audifonos\n1 Estuche de Carga\n1 Cable USB",
+        "permalink": "https://articulo.mercadolibre.com.co/MCO-1371196095-audifono-recargable-digital-sin-bluetooth-sordos-sordera-par-_JM",
+        "attributes": [
+            {
+                "id": "BRAND",
+                "name": "Marca",
+                "value_name": "Genérica"
+            },
+            {
+                "id": "MODEL",
+                "name": "Modelo",
+                "value_name": "K-80"
+            },
+            {
+                "id": "COLOR",
+                "name": "Color",
+                "value_name": "Beige"
+            }
+        ],
+        "city": "Bogotá D.C."
     }
 ]

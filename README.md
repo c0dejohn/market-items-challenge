@@ -65,7 +65,15 @@ npm run test
 npm run test:cov
 ```
 
-## 🔄 DevOps Flow: CI/CD & Quality Assurance
+## � API Documentation
+
+This project uses **Swagger (OpenAPI)** for interactive API documentation.
+
+1.  Start the application.
+2.  Navigate to **`http://localhost:3000/api`**.
+3.  Explore and test the endpoints directly from the browser.
+
+## �🔄 DevOps Flow: CI/CD & Quality Assurance
 
 This project uses an automated pipeline to ensure every delivery meets production standards:
 

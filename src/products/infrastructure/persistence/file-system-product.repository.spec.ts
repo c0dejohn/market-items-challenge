@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FileSystemProductRepository } from './file-system-product.repository';
-import * as fs from 'fs/promises';
+import * as fs from 'node:fs/promises';
 import { Product } from '../../domain/product.model';
 
-jest.mock('fs/promises');
+jest.mock('node:fs/promises');
 
 describe('FileSystemProductRepository', () => {
     let repository: FileSystemProductRepository;

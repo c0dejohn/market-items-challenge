@@ -2,6 +2,12 @@
 
 Backend API for serving product details, built with **NestJS** following **Hexagonal Architecture** principles.
 
+### Badges
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/c0dejohn/market-items-challenge/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/c0dejohn/market-items-challenge/tree/main)
+![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=c0dejohn_market-items-challenge&metric=alert_status)
+![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=c0dejohn_market-items-challenge&metric=coverage)
+
 ## 🚀 Features
 
 *   **Hexagonal Architecture**: Strict separation between Domain, Application, and Infrastructure layers.

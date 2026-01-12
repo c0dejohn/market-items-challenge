@@ -1,35 +1,43 @@
 version: 2.1
 
+orbs:
+  sonarcloud: sonarcloud/sonarcloud@2.0.0 #
+
 jobs:
   build_and_test:
     docker:
-      - image: cimg/node:20.0
+      - image: cimg/node:20.0 #
     working_directory: ~/project
     steps:
       - checkout
       - run:
           name: Install Dependencies
           command: |
-            npm ci --ignore-scripts
+            # Entramos a la carpeta del proyecto si es necesario
+            cd market-items && npm ci --ignore-scripts #
       - run:
-          name: Run Tests
+          name: Run Tests and Coverage
           command: |
-            npm run test:cov
+            cd market-items && npm run test:cov # Genera lcov.info para SonarCloud
+
+      # Paso de escaneo de SonarCloud
+      - sonarcloud/scan #
+
       - run:
           name: Deploy to HackerRank
           command: |
-            # Configuramos git para el push
-             git config --global user.email "ci-bot@circleci.com"
-             git config --global user.name "CircleCI Bot"
-            # HACKERRANK_REPO_URL debe estar en los Project Settings de CircleCI
+            git config --global user.email "ci-bot@circleci.com"
+            git config --global user.name "CircleCI Bot"
+            # HACKERRANK_REPO_URL debe contener las credenciales usuario:token
             git remote add hackerrank $HACKERRANK_REPO_URL
-            git push hackerrank HEAD:master --force
+            git push hackerrank HEAD:master --force #
 
 workflows:
   version: 2
   market_items_workflow:
     jobs:
       - build_and_test:
+          context: sonarcloud # Requerido para leer el SONAR_TOKEN
           filters:
             branches:
               only:

@@ -1,8 +1,8 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { Product } from '../../domain/product.model';
 import { ProductRepository } from '../../domain/product.repository.interface';
-import * as fs from 'fs/promises';
-import * as path from 'path';
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 
 @Injectable()
 export class FileSystemProductRepository implements ProductRepository {

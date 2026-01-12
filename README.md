@@ -4,7 +4,7 @@ Backend API for serving product details, built with **NestJS** following **Hexag
 
 ### Badges
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/c0dejohn/market-items-challenge/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/c0dejohn/market-items-challenge/tree/main)
+![CircleCI](https://dl.circleci.com/status-badge/img/gh/c0dejohn/market-items-challenge/tree/main.svg?style=svg)
 ![SonarCloud Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=c0dejohn_market-items-challenge&metric=alert_status)
 ![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=c0dejohn_market-items-challenge&metric=coverage)
 

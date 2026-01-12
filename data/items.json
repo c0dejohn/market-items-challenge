@@ -1,0 +1,16 @@
+[
+    {
+        "id": "MLA123",
+        "title": "Test Item",
+        "price": {
+            "currency": "ARS",
+            "amount": 1000,
+            "decimals": 0
+        },
+        "picture": "http://http2.mlstatic.com/D_878345-MLA456_012024-O.jpg",
+        "condition": "new",
+        "free_shipping": true,
+        "sold_quantity": 10,
+        "description": "Description"
+    }
+]

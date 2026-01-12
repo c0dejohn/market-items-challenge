@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { JsonFileItemsRepository } from './json-file-items.repository';
+import { FileSystemProductRepository } from './file-system-product.repository';
 import * as fs from 'fs/promises';
-import { Item } from '../../domain/item.model';
+import { Product } from '../../domain/product.model';
 
 jest.mock('fs/promises');
 
-describe('JsonFileItemsRepository', () => {
-    let repository: JsonFileItemsRepository;
+describe('FileSystemProductRepository', () => {
+    let repository: FileSystemProductRepository;
 
-    const mockItems: Item[] = [
+    const mockProducts: Product[] = [
         {
             id: 'MLA1',
-            title: 'Test Item',
+            title: 'Test Product',
             price: { currency: 'ARS', amount: 100, decimals: 0 },
             pictures: ['url'],
             condition: 'new',
@@ -26,10 +26,10 @@ describe('JsonFileItemsRepository', () => {
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
-            providers: [JsonFileItemsRepository],
+            providers: [FileSystemProductRepository],
         }).compile();
 
-        repository = module.get<JsonFileItemsRepository>(JsonFileItemsRepository);
+        repository = module.get<FileSystemProductRepository>(FileSystemProductRepository);
         jest.clearAllMocks();
     });
 
@@ -38,16 +38,16 @@ describe('JsonFileItemsRepository', () => {
     });
 
     describe('findById', () => {
-        it('should return an item when found', async () => {
-            (fs.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockItems));
+        it('should return a product when found', async () => {
+            (fs.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockProducts));
 
             const result = await repository.findById('MLA1');
-            expect(result).toEqual(mockItems[0]);
+            expect(result).toEqual(mockProducts[0]);
             expect(fs.readFile).toHaveBeenCalled();
         });
 
-        it('should return null when item is not found', async () => {
-            (fs.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockItems));
+        it('should return null when product is not found', async () => {
+            (fs.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockProducts));
 
             const result = await repository.findById('MLA999');
             expect(result).toBeNull();

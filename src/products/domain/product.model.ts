@@ -1,6 +1,11 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class Price {
+    @ApiProperty()
     currency: string;
+    @ApiProperty()
     amount: number;
+    @ApiProperty()
     decimals: number;
 
     constructor(currency: string, amount: number, decimals: number) {
@@ -11,8 +16,11 @@ export class Price {
 }
 
 export class Attribute {
+    @ApiProperty()
     id: string;
+    @ApiProperty()
     name: string;
+    @ApiProperty()
     value_name: string;
 
     constructor(id: string, name: string, value_name: string) {
@@ -22,17 +30,28 @@ export class Attribute {
     }
 }
 
-export class Item {
+export class Product {
+    @ApiProperty()
     id: string;
+    @ApiProperty()
     title: string;
+    @ApiProperty()
     price: Price;
+    @ApiProperty()
     pictures: string[];
+    @ApiProperty()
     condition: string;
+    @ApiProperty()
     free_shipping: boolean;
+    @ApiProperty()
     sold_quantity: number;
+    @ApiProperty()
     description: string;
+    @ApiProperty()
     permalink: string;
+    @ApiProperty({ type: [Attribute] })
     attributes: Attribute[];
+    @ApiProperty()
     city: string;
 
     constructor(

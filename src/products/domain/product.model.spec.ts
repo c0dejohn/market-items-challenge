@@ -1,4 +1,4 @@
-import { Item, Price, Attribute } from './item.model';
+import { Product, Price, Attribute } from './product.model';
 
 describe('Domain Models', () => {
     describe('Price', () => {
@@ -19,11 +19,11 @@ describe('Domain Models', () => {
         });
     });
 
-    describe('Item', () => {
-        it('should create an Item instance with all fields', () => {
+    describe('Product', () => {
+        it('should create a Product instance with all fields', () => {
             const price = new Price('COP', 1000, 0);
             const attr = new Attribute('BRAND', 'Marca', 'Sony');
-            const item = new Item(
+            const product = new Product(
                 '123',
                 'Title',
                 price,
@@ -37,10 +37,10 @@ describe('Domain Models', () => {
                 'Bogota'
             );
 
-            expect(item.id).toBe('123');
-            expect(item.pictures).toEqual(['img1.jpg']);
-            expect(item.attributes).toHaveLength(1);
-            expect(item.attributes[0]).toBeInstanceOf(Attribute);
+            expect(product.id).toBe('123');
+            expect(product.pictures).toEqual(['img1.jpg']);
+            expect(product.attributes).toHaveLength(1);
+            expect(product.attributes[0]).toBeInstanceOf(Attribute);
         });
     });
 });

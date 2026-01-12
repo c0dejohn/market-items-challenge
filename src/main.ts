@@ -2,17 +2,12 @@ import { NestFactory } from '@nestjs/core';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
-import { ApiKeyGuard } from './common/guards/api-key.guard';
 
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
     const logger = new Logger('Bootstrap');
     const app = await NestFactory.create(AppModule, { cors: true });
-
-    // Explicitly register the guard here to ensure it runs
-    logger.log('🛡️ Registering Global ApiKeyGuard...');
-    app.useGlobalGuards(new ApiKeyGuard());
 
     app.use(helmet());
     app.useGlobalPipes(new ValidationPipe({

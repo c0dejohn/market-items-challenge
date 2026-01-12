@@ -23,6 +23,9 @@ jobs:
       # Paso de escaneo de SonarCloud
       - sonarcloud/scan #
 
+      - sonarcloud/check-quality-gate:
+          fail-on-error: true
+
       - run:
           name: Deploy to HackerRank
           command: |

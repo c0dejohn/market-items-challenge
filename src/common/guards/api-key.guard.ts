@@ -1,16 +1,13 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
-    constructor(private readonly configService: ConfigService) { }
-
     canActivate(context: ExecutionContext): boolean {
         const request = context.switchToHttp().getRequest();
         const apiKey = request.headers['x-api-key'];
 
-        // Get API_KEY from environment or default for dev convenience if needed
-        const validApiKey = this.configService.get<string>('API_KEY');
+        // Get API_KEY from environment directly
+        const validApiKey = process.env.API_KEY;
 
         if (!validApiKey) {
             // If no API key is configured, potentially warn or fail open/closed depending on policy.

@@ -65,6 +65,14 @@ npm run test
 npm run test:cov
 ```
 
+## 🔄 DevOps Flow: CI/CD & Quality Assurance
+
+This project uses an automated pipeline to ensure every delivery meets production standards:
+
+*   **Continuous Integration (CircleCI)**: Every push triggers an isolated environment where dependencies are installed and unit/integration tests are executed.
+*   **Static Analysis (SonarCloud)**: Code undergoes security (SAST), quality, and coverage analysis. The Quality Gate blocks the flow if vulnerabilities are detected or if coverage drops below 80%.
+*   **Automated Sync**: Upon passing all validations, the code is automatically synced with the HackerRank repository, ensuring the evaluated version is always the most stable.
+
 ## 🏗️ Architecture Decisions (ADR)
 
 See [docs/adr](docs/adr) for detailed records:

@@ -32,6 +32,16 @@ jobs:
             git remote add hackerrank $HACKERRANK_REPO_URL
             git push hackerrank HEAD:master --force #
 
+      - run:
+          name: Deploy to Render
+          command: |
+            if [ -n "${RENDER_DEPLOY_HOOK}" ]; then
+              echo "Triggering Render Deploy..."
+              curl -X POST "${RENDER_DEPLOY_HOOK}"
+            else
+              echo "RENDER_DEPLOY_HOOK not set. Skipping auto-deployment."
+            fi
+
 workflows:
   version: 2
   market_items_workflow:

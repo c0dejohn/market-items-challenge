@@ -7,18 +7,18 @@ jobs:
   build_and_test:
     docker:
       - image: cimg/node:20.0 #
-    working_directory: ~/project
+    working_directory: ~/project.
     steps:
       - checkout
       - run:
           name: Install Dependencies
           command: |
             # Entramos a la carpeta del proyecto si es necesario
-            cd market-items && npm ci --ignore-scripts #
+            npm ci --ignore-scripts #
       - run:
           name: Run Tests and Coverage
           command: |
-            cd market-items && npm run test:cov # Genera lcov.info para SonarCloud
+            npm run test:cov # Genera lcov.info para SonarCloud
 
       # Paso de escaneo de SonarCloud
       - sonarcloud/scan #

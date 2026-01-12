@@ -10,17 +10,15 @@ export class ApiKeyGuard implements CanActivate {
         const validApiKey = process.env.API_KEY;
 
         if (!validApiKey) {
-            // If no API key is configured, potentially warn or fail open/closed depending on policy.
-            // For strict security, we should probably fail.
-            // For this challenge, let's assume if env is missing, we might fail or allow for easier dev.
-            // Let's enforce it.
-            console.warn('API_KEY not set in environment. Blocking all requests.');
-            return false;
+            console.error('FATAL: API_KEY is not set in the environment variables.');
+            throw new UnauthorizedException('Server misconfiguration: API_KEY missing');
         }
 
         if (apiKey === validApiKey) {
             return true;
         }
+
+        console.warn(`Blocked request with invalid key: ${apiKey}`);
 
         throw new UnauthorizedException('Invalid API Key');
     }

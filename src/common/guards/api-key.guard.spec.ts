@@ -47,7 +47,6 @@ describe('ApiKeyGuard', () => {
         const mockRequest = { headers: { 'x-api-key': 'secret' } };
         (mockContext.switchToHttp().getRequest as jest.Mock).mockReturnValue(mockRequest);
 
-        const result = guard.canActivate(mockContext);
-        expect(result).toBe(false);
+        expect(() => guard.canActivate(mockContext)).toThrow(UnauthorizedException);
     });
 });

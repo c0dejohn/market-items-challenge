@@ -65,15 +65,14 @@ npm run test
 npm run test:cov
 ```
 
-## � API Documentation
+## Swagger
 
-This project uses **Swagger (OpenAPI)** for interactive API documentation.
+The interactive API documentation is available at:
+- **Local**: `http://localhost:3000/api`
+- **Production**: `https://market-items-challenge.onrender.com/api`
 
-1.  Start the application.
-2.  Navigate to **`http://localhost:3000/api`**.
-3.  Explore and test the endpoints directly from the browser.
-
-## �🔄 DevOps Flow: CI/CD & Quality Assurance
+## Running the app
+## 🔄 DevOps Flow: CI/CD & Quality Assurance
 
 This project uses an automated pipeline to ensure every delivery meets production standards:
 

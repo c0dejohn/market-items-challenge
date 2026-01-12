@@ -21,7 +21,12 @@ async function bootstrap() {
         .setDescription('API for searching and retrieving item details')
         .setVersion('1.0')
         .addTag('items')
-        .addApiKey({ type: 'apiKey', name: 'x-api-key', in: 'header', description: 'API Key (hidden in logs)' }, 'x-api-key')
+        .addApiKey({
+            type: 'apiKey',
+            name: 'x-api-key',
+            in: 'header',
+            description: `API Key. Default dev key is: ${process.env.API_KEY || 'c3VwZXItc2VjcmV0MTIz'}`
+        }, 'x-api-key')
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api', app, document);

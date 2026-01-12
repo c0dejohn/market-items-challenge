@@ -55,7 +55,7 @@ src/
 
 ## ✅ Testing
 
-This project maintains a high coverage threshold (>90%).
+This project maintains a high coverage threshold (>=80%).
 
 ```bash
 # Unit & Integration Tests

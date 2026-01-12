@@ -1,0 +1,45 @@
+name: Market Items CI
+
+on:
+  push:
+    branches: [ "main", "master", "develop" ]
+    paths:
+      - 'market-items/**'
+  pull_request:
+    branches: [ "main", "master", "develop" ]
+    paths:
+      - 'market-items/**'
+
+defaults:
+  run:
+    working-directory: ./market-items
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: market-items/package-lock.json
+
+    - name: Install Dependencies
+      run: npm ci --ignore-scripts
+
+    - name: Lint
+      run: npm run lint
+
+    - name: Test & Coverage
+      run: npm run test:cov
+
+    - name: Build
+      run: npm run build

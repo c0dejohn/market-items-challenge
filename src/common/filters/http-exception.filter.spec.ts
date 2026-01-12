@@ -77,4 +77,38 @@ describe('HttpExceptionFilter', () => {
             message: 'Internal server error',
         });
     });
+
+    it('should catch http exception with object response (e.g. validation error)', () => {
+        const mockJson = jest.fn();
+        const mockStatus = jest.fn().mockImplementation(() => ({
+            json: mockJson,
+        }));
+        const mockGetResponse = jest.fn().mockImplementation(() => ({
+            status: mockStatus,
+        }));
+        const mockGetRequest = jest.fn().mockReturnValue({
+            url: '/test-url',
+        });
+        const mockHttpArgumentsHost = {
+            getResponse: mockGetResponse,
+            getRequest: mockGetRequest,
+        };
+
+        const mockArgumentsHost = {
+            switchToHttp: () => mockHttpArgumentsHost,
+        };
+
+        const errorResponse = { message: 'Validation Error', error: 'Bad Request' };
+        const exception = new HttpException(errorResponse, HttpStatus.BAD_REQUEST);
+
+        filter.catch(exception, mockArgumentsHost as unknown as ArgumentsHost);
+
+        expect(mockStatus).toHaveBeenCalledWith(HttpStatus.BAD_REQUEST);
+        expect(mockJson).toHaveBeenCalledWith({
+            statusCode: HttpStatus.BAD_REQUEST,
+            timestamp: expect.any(String),
+            path: '/test-url',
+            message: 'Validation Error',
+        });
+    });
 });

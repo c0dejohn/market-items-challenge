@@ -27,6 +27,7 @@ challenge.MD
 # Testing
 coverage/
 test-results/
+test-ui/
 
 # NestJS
 .nest-cli.json

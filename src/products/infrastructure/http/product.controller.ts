@@ -1,5 +1,5 @@
 import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags, ApiSecurity } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags, ApiSecurity, ApiParam } from '@nestjs/swagger';
 import { CacheInterceptor } from '@nestjs/cache-manager';
 import { GetProductDetailHandler } from '../../application/get-product-detail.handler';
 import { Product } from '../../domain/product.model';
@@ -15,6 +15,8 @@ export class ProductController {
     @ApiResponse({ status: 200, description: 'Return the product.', type: Product })
     @ApiResponse({ status: 404, description: 'Product not found.' })
     @Get(':id')
+    @ApiOperation({ summary: 'Get product detail by ID' })
+    @ApiParam({ name: 'id', example: 'MLA123', description: 'Product ID (e.g. MLA123)' })
     async getProduct(@Param('id') id: string): Promise<Product> {
         return this.getProductDetailHandler.execute(id);
     }

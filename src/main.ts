@@ -21,7 +21,7 @@ async function bootstrap() {
         .setDescription('API for searching and retrieving item details')
         .setVersion('1.0')
         .addTag('items')
-        .addApiKey({ type: 'apiKey', name: 'x-api-key', in: 'header' }, 'x-api-key')
+        .addApiKey({ type: 'apiKey', name: 'x-api-key', in: 'header', description: 'API Key (hidden in logs)' }, 'x-api-key')
         .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api', app, document);

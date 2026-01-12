@@ -1,10 +1,12 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CacheInterceptor } from '@nestjs/cache-manager';
 import { GetProductDetailHandler } from '../../application/get-product-detail.handler';
 import { Product } from '../../domain/product.model';
 
 @ApiTags('items')
 @Controller('items')
+@UseInterceptors(CacheInterceptor)
 export class ProductController {
     constructor(private readonly getProductDetailHandler: GetProductDetailHandler) { }
 

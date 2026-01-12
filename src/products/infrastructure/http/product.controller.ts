@@ -1,10 +1,11 @@
 import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse, ApiTags, ApiSecurity } from '@nestjs/swagger';
 import { CacheInterceptor } from '@nestjs/cache-manager';
 import { GetProductDetailHandler } from '../../application/get-product-detail.handler';
 import { Product } from '../../domain/product.model';
 
 @ApiTags('items')
+@ApiSecurity('x-api-key')
 @Controller('items')
 @UseInterceptors(CacheInterceptor)
 export class ProductController {

@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { ProductController } from './product.controller';
 import { GetProductDetailHandler } from '../../application/get-product-detail.handler';
 import { Product, Price } from '../../domain/product.model';
+import { CacheModule } from '@nestjs/cache-manager';
 
 const mockProduct = new Product(
     '123',
@@ -26,6 +27,7 @@ describe('ProductController', () => {
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
+            imports: [CacheModule.register()],
             controllers: [ProductController],
             providers: [
                 {

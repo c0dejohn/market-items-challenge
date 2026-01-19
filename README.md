@@ -21,17 +21,20 @@ Backend API for serving product details, built with **NestJS** following **Hexag
 
 ```
 src/
-├── items/
-│   ├── domain/                 # Pure Business Logic
-│   │   ├── item.model.ts       # Domain Entity
-│   │   └── items.repository.interface.ts # Port (Interface)
-│   ├── infrastructure/         # Adapters & external world
-│   │   └── persistence/
-│   │       └── json-file-items.repository.ts # Adapter (File System)
-│   ├── controllers/            # Entry Point Adapters
-│   │   └── items.controller.ts # REST API Adapter
-│   └── services/               # Application Service
-│       └── items.service.ts    # Use Cases Orchestration
+├── products/
+│   ├── domain/                         # Pure Business Logic (Enterprise Rules)
+│   │   ├── product.model.ts            # Domain Entity
+│   │   └── product.repository.interface.ts # Port (Secondary Port)
+│   ├── application/                    # Application Business Rules
+│   │   └── get-product-detail.handler.ts # Use Case Implementation
+│   └── infrastructure/                 # Adapters & External Details
+│       ├── http/
+│       │   └── product.controller.ts   # Primary Adapter (REST API)
+│       └── persistence/
+│           ├── entities/               # ORM Entities
+│           └── sqlite-product.repository.ts # Secondary Adapter (Database)
+├── common/                             # Shared utilities, filters, guards
+└── app.module.ts                       # Main Module Composition
 ```
 
 ## 🛠️ Setup & Installation

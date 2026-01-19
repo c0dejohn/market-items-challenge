@@ -24,15 +24,6 @@ jobs:
       - sonarcloud/scan #
 
       - run:
-          name: Deploy to HackerRank
-          command: |
-            git config --global user.email "ci-bot@circleci.com"
-            git config --global user.name "CircleCI Bot"
-            # HACKERRANK_REPO_URL debe contener las credenciales usuario:token
-            git remote add hackerrank $HACKERRANK_REPO_URL
-            git push hackerrank HEAD:master --force #
-
-      - run:
           name: Deploy to Render
           command: |
             if [ -n "${RENDER_DEPLOY_HOOK}" ]; then
